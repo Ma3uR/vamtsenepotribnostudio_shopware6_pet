@@ -1,0 +1,19 @@
+// --------------------------------------------------
+// copyright  ©  TAB10 / ENOOA s.r.o.
+// --------------------------------------------------
+
+.card{
+    border-radius: 0;
+}
+
+.card-title{
+    border-bottom-color:$norii-border-color;
+}
+
+.card-tabs .nav-link{
+    @include media-breakpoint-up(sm) {
+        padding-left: 40px;
+        padding-right: 40px;
+        border-bottom: 1px solid $norii-border-color;
+    }
+}

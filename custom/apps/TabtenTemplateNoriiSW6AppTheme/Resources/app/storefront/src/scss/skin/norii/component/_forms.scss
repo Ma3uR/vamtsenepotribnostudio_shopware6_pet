@@ -1,0 +1,83 @@
+// --------------------------------------------------
+// copyright  ©  TAB10 / ENOOA s.r.o.
+// --------------------------------------------------
+
+.form-control{
+    border-color: darken($norii-border-color, 5%);
+
+    &:hover{
+        background: #fafafa;
+    }
+
+    &:focus{
+        border-color: darken($norii-border-color, 10%);
+    }
+}
+
+
+
+
+
+.custom-select{
+    background: inline-svg('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"><polygon fill="' + $sw-text-color + '" points="17.582,14.799 19,16.215 12,23.201 12,23.201 12,23.201 5,16.215 6.415,14.799 12,20.371 "/><polygon fill="' + $sw-text-color + '" points="6.418,9.201 5,7.786 12,0.799 12,0.799 12,0.799 19,7.786 17.585,9.201 12,3.629 "/></svg>') #fff no-repeat calc(100% - 10px) 50%;
+    background-size: 14px auto;
+    color: $sw-text-color;
+    border-color: $norii-border-color;
+
+    &:focus,
+    &:hover {
+        border-color: $norii-border-color;
+        color: $sw-text-color;
+        box-shadow: none;
+        background-color: #fafafa;
+    }
+}
+
+
+.country-and-state-form-elements{
+    .form-group:last-child{
+        label{
+            display: none;
+        }
+    }
+}
+
+.fl-wrap~.invalid-feedback{
+    display: block;
+}
+
+
+.norii-float-labels{
+
+    .register-card{
+        >.card-body{
+            ~ .card-title{
+                @include media-breakpoint-up(md) {
+                    max-width: 60%;
+                }
+            }
+        }
+    }
+    .register-form{
+
+        @include media-breakpoint-up(md) {
+            max-width: 60%;
+
+            .col-sm-6,
+            .col-md-6{
+                max-width: 100%;
+                flex: 0 0 100%;
+            }
+
+            .col-md-2{
+                max-width: 33.333%;
+                flex: 0 0 33.333%;
+            }
+
+            .col-md-4{
+                max-width: 66.666%;
+                flex: 0 0 66.666%;
+            }
+        }
+    }
+}

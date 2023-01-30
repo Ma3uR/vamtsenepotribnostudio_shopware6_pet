@@ -1,0 +1,25 @@
+{
+    "tabten-norii": {
+        "usps": {
+            "usp01": "Free shipping from 100 euro",
+            "usp02": "Fast delivery",
+            "usp03": "Secure SSL connection",
+            "usp04": "Tel: 012345678"
+        },
+        "mainnav": {
+            "greedy-menu-name": "Menu"
+        },
+        "detail": {
+            "properties": "Properties",
+            "accordion-properties": "Properties",
+            "detail-usp-item-01": "Free shipping from 100 euro",
+            "detail-usp-item-02": "Fast delivery",
+            "detail-usp-item-03": "Secure SSL connection",
+            "detail-usp-item-04": "Tel: 012345678"
+        },
+        "footer": {
+            "payment-headline": "Payment",
+            "shipping-headline": "Shipping"
+        }
+    }
+}

@@ -1,0 +1,78 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
+
+{% block page_product_detail_headline %}
+    {{ parent() }}
+
+    {% block norii_page_product_detail_ordernumber_container_replace %}
+        {% if page.product.productNumber %}
+            <div class="product-detail-ordernumber-container{% if page.product.ratingAverage > 0 and config('core.listing.showReview') %} has-review{% endif %}{% if theme_config('norii-hide-articlenumber') %} d-none{% endif %}">
+                {% block page_product_detail_ordernumber_label %}
+                    <span class="product-detail-ordernumber-label">
+                            {{ "detail.ordernumberLabel"|trans|sw_sanitize }}
+                        </span>
+                {% endblock %}
+
+                {% block page_product_detail_ordernumber %}
+                    <meta itemprop="productID"
+                          content="{{ page.product.id }}"/>
+                    <span class="product-detail-ordernumber"
+                          itemprop="sku">
+                            {{ page.product.productNumber }}
+                        </span>
+                {% endblock %}
+            </div>
+        {% endif %}
+    {% endblock %}
+
+    {% block norii_page_product_detail_reviews %}
+
+        {% set remoteClickOptions = {
+            selector: "#norii-accordion-heading-rating",
+            scrollToElement: true
+        } %}
+
+        {% if page.product.ratingAverage > 0 and page.reviews.totalReviews > 0 and config('core.listing.showReview') %}
+            <div class="product-detail-reviews">
+
+                {% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+                    points: page.product.ratingAverage,
+                    style: 'text-primary'
+                } %}
+                <a data-toggle="tab"
+                   class="product-detail-reviews-link"
+                   data-offcanvas-tabs="true"
+                   data-remote-click="true"
+                   data-remote-click-options='{{ remoteClickOptions|json_encode }}'
+                   href="#norii-accordion-heading-rating"
+                   aria-controls="norii-accordion-heading-rating">
+                    {{ page.reviews.totalReviews }}
+                    {{ "detail.reviewLinkText"|trans({'%count%': page.reviews.totalReviews})|sw_sanitize }}
+                </a>
+            </div>
+        {% endif %}
+
+
+    {% endblock %}
+{% endblock %}
+
+{% block page_product_detail_media %}
+
+    {% if theme_config('norii-detail-image-slider') %}
+        {% sw_include '@Storefront/storefront/page/product-detail/norii-detail-image.html.twig' with {
+            'isProduct': true,
+            'fallbackImageTitle': page.product.translated.name
+            }
+        %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+
+{% endblock %}
+
+{% block page_product_detail_tabs %}
+    {% if theme_config('norii-show-detail-accordion') %}
+
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,424 @@
+// --------------------------------------------------
+// copyright  ©  TAB10 / ENOOA s.r.o.
+// --------------------------------------------------
+
+.header-main{
+    background: $norii-header-background-color;
+
+    .container{
+        max-width: none;
+        padding: 0;
+    }
+
+    .header-row >.container{
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    @include media-breakpoint-down(md) {
+        box-shadow: 0 10px 10px -12px rgba(0,0,0,.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+}
+
+.header-row{
+    background: $norii-header-background-color;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 1px 0 0 $norii-header-bordercolor;
+
+    .norii-fixed-nav &{
+        position: fixed;
+        width: 100%;
+        z-index: 1101;
+        top: 0;
+        max-width: none;
+
+        .no-scroll &{
+            z-index: 2;
+        }
+
+        > .row{
+            //position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+    }
+
+    .btn{
+        .icon{
+            color:$norii-header-icon-color;
+
+            &.icon-search{
+                color:$norii-header-icon-color;
+            }
+        }
+
+        &:hover{
+            .icon{
+                color:$norii-header-icon-color-hover;
+            }
+        }
+    }
+
+    #searchCollapse{
+        .btn {
+            .icon {
+                color: #000;
+
+                &.icon-search {
+                    color: #000;
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        padding: 5px 0;
+        position: relative;
+    }
+}
+
+.header-cart{
+    position: relative;
+
+    &:hover{
+        .header-cart-total{
+            opacity: 1;
+            bottom: -22px;
+            color: #fff;
+        }
+    }
+
+    .header-cart-badge{
+        display: block;
+        right: -5px;
+        top: -3px;
+        background: none;
+        color: $norii-header-icon-color;
+    }
+}
+
+.header-cart-total{
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    bottom: -12px;
+    margin: 0;
+    opacity: 0;
+    transform: translateX(-50%);
+    background: #000;
+    border-radius: 0;
+    padding: 0 5px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 22px;
+    z-index: 10;
+    @include transition(all 0.18s ease-out 0.18s);
+
+    &::after{
+        content: "";
+        display: inline-block;
+        height: 7px;
+        width: 7px;
+        top: 0;
+        left: 50%;
+        @include transform(translate3d(-50%,-50%,0) rotate(-45deg));
+        background: #000;
+        position: absolute;
+    }
+}
+
+.dropdown-menu.account-menu-dropdown{
+    padding: 0;
+
+    .account-menu-header,
+    .account-menu-login{
+        border-color: $norii-border-color;
+    }
+
+    .account-menu-login{
+        margin-bottom: 0;
+    }
+
+    .account-menu-header,
+    .account-menu-login,
+    .list-group-item{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .list-group-item{
+        &:hover{
+            background: #fbfbfb;
+        }
+    }
+
+    .account-aside-footer{
+        border-top-color:$norii-border-color;
+        padding: 0;
+
+        .account-aside-btn{
+            width: 100%;
+            text-align: left;
+            display: block;
+            line-height: 2;
+            padding: 5px 10px;
+
+            .icon{
+                width: 18px;
+            }
+
+            &:hover{
+                background: #fbfbfb;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+.header-logo-col{
+
+    @include transition(all .3s ease-out);
+
+    .norii-fixed-nav &{
+        max-width: 200px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding: 0 0 0 20px;
+        position: absolute;
+        max-width: 200px;
+        z-index: 2;
+    }
+
+    @include media-breakpoint-down(md) {
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50px;
+        max-width: 130px;
+        z-index: 2;
+        @include translate(0, -50%);
+    }
+}
+
+.header-logo-main{
+    @include transition(all .3s ease-out);
+
+    .norii-fixed-nav &{
+        padding: 5px 0;
+
+        .img-fluid{
+            max-width: none;
+            max-height: 40px;
+            width: 100%;
+        }
+    }
+
+    .img-fluid{
+        @include transition(all .3s ease-out);
+    }
+}
+
+.header-logo-main-link{
+    @include transition(all .3s ease-out);
+}
+
+
+
+// SEARCH
+.header-search{
+    max-width: 600px;
+
+    .input-group-append{
+        margin-left: 0;
+    }
+}
+
+.search-toggle-btn {
+
+    &:not(.collapsed){
+        .icon-search{
+            position: relative;
+
+            &::after{
+                content: "";
+                display: block;
+                background: inline-svg('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"><polygon style="fill:'+$norii-header-icon-color+';" points="22.525,0 11.975,10.538 1.475,0.05 0,1.525 10.5,12 0,22.487 1.475,23.95 11.975,13.475 22.525,24 24,22.537 13.45,12 24,1.475 "/></svg>');
+                background-size: contain;
+                height: 22px;
+                width: 22px;
+                position: absolute;
+                top: 7px;
+            }
+        }
+    }
+
+    svg{
+        display: none;
+    }
+
+    &.collapsed{
+        svg{
+            display: block;
+        }
+    }
+}
+
+.norii-search-col{
+    position: absolute;
+    right: 0;
+}
+
+.header-search-form{
+    &:focus-within{
+        box-shadow: 0 10px 10px -12px rgba(0,0,0,.25);
+    }
+}
+
+.header-search-input{
+    height: calc(1.5em + 1.125rem + 12px);
+    background: #fbfbfb;
+    color: #999;
+    border: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    &:focus{
+        color: #000;
+        border-color: darken(#f2f2f2, 10%);
+        background: #fff;
+
+
+        & ~ .input-group-append > .btn {
+                background: #fff;
+                border-top-color: darken(#f2f2f2, 10%);
+                border-right-color: darken(#f2f2f2, 10%);
+                border-bottom-color: darken(#f2f2f2, 10%);
+                //box-shadow: -20px 10px 10px -12px rgba(0,0,0,.5), -10px 10px 10px -12px rgba(0,0,0,.5);
+        }
+        
+    }
+
+    @include media-breakpoint-down(md) {
+        height: auto;
+    }
+}
+
+.header-search-btn{
+    background: #fbfbfb;
+    border:none;
+
+    .loader{
+        color:#000 !important;
+    }
+}
+
+.search-suggest-container,
+.search-suggest-container::after{
+    border-color: #fff;
+}
+
+.search-suggest-container{
+    top: 67px;
+    box-shadow: 0 0 30px -10px rgba(0, 0, 0, 0.25);
+    padding: 0;
+    border: none;
+
+
+    @include media-breakpoint-up(md) {
+        width: 600px;
+    }
+
+    .search-suggest-product-link{
+        padding: 10px;
+    }
+}
+
+.search-suggest-product{
+    border-bottom-color: $norii-border-color;
+}
+
+.search-suggest-total{
+    padding: 15px;
+
+    .icon-arrow-head-right{
+        svg{
+            max-width: 12px;
+        }
+    }
+}
+
+.search-suggest-no-result{
+    padding: 10px;
+}
+
+
+.header-search-col{
+
+    @include media-breakpoint-up(lg) {
+        padding: 0;
+
+        >.row{
+            margin: 0;
+        }
+    }
+
+    .col-sm-auto{
+        @include media-breakpoint-down(md) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .collapse:not(.show){
+        display: none;
+    }
+
+    #searchCollapse{
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+            margin: 0;
+            padding: 0;
+            background: none;
+            position: absolute;
+            right: -65px;
+            top: 45px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            top: 70px;
+            border-radius: $norii-border-radius;
+            box-shadow: 0 7px 10px rgba(0,0,0,0.2);
+            max-width: 500px;
+
+            .norii-fixed-nav &{
+                top: 44px;
+            }
+        }
+
+        @include media-breakpoint-only(xs) {
+            position: absolute;
+            padding: 0 10px;
+            background: #fff;
+            max-width: none;
+            left: 0;
+            margin: 0;
+        }
+    }
+}
+
+.header-actions-col{
+    @include media-breakpoint-down(md) {
+        padding: 0;
+    }
+
+    .menu-button{
+        width: 50px;
+    }
+}

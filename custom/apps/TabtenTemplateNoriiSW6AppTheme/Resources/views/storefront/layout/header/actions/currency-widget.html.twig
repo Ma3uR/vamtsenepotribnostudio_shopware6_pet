@@ -1,0 +1,18 @@
+{% sw_extends '@Storefront/storefront/layout/header/actions/currency-widget.html.twig' %}
+
+{% block layout_header_actions_currency_widget_dropdown_toggle %}
+    <button class="btn dropdown-toggle top-bar-nav-btn"
+            type="button"
+            id="currenciesDropdown-{{ position }}"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-label="{{ page.header.activeCurrency.translated.name }}"
+            data-balloon-pos="down">
+        {% block layout_header_actions_currency_widget_dropdown_toggle_name %}
+            {{ page.header.activeCurrency.symbol }}
+            <span class="top-bar-nav-text">{{ page.header.activeCurrency.translated.name }}</span>
+        {% endblock %}
+    </button>
+{% endblock %}
+

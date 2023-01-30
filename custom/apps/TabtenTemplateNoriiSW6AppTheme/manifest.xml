@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/app-system/0.1.0/src/Core/Content/App/Manifest/Schema/manifest-1.0.xsd">
+    <meta>
+        <name>TabtenTemplateNoriiSW6AppTheme</name>
+        <label>TAB10 ThemeAPP NORII</label>
+        <label lang="de-DE">TAB10 ThemeAPP NORII</label>
+        <description>NORII Shopware Theme. The start to your custom shopware 6 shop.</description>
+        <description lang="de-DE">NORII Shopware Theme. Der Start zu deinem individuellen Shopware 6 Shop.</description>
+        <author>TAB10 / ENOOA s.r.o.</author>
+        <copyright>(c) by TAB10 / ENOOA s.r.o.</copyright>
+        <version>1.1.2</version>
+        <icon>icon.png</icon>
+        <license>proprietary</license>
+    </meta>
+</manifest>

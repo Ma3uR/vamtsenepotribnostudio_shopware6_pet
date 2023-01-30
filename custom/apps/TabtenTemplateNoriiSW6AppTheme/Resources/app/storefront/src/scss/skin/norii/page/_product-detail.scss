@@ -1,0 +1,201 @@
+// --------------------------------------------------
+// copyright  ©  TAB10 / ENOOA s.r.o.
+// --------------------------------------------------
+
+.is-ctl-product {
+    .delivery-information{
+        font-size: 12px;
+
+        &.delivery-shipping-free{
+            margin: 0;
+        }
+    }
+
+    .product-detail-tax{
+        margin: 0;
+    }
+
+    .product-slider-item{
+        .product-description,
+        .product-price-unit{
+            display: none;
+        }
+    }
+
+    .product-detail-content{
+        .product-detail-reviews{
+            margin: -20px 0 10px;
+        }
+    }
+
+    .card-tabs {
+        .nav-link {
+            &.active,
+            &:hover {
+                background: none;
+
+            }
+        }
+    }
+
+    .cms-section .boxed{
+        padding: 0 20px;
+    }
+}
+
+.product-detail-headline{
+
+    .norii-detail-image-slider &{
+        margin-bottom: 10px;
+    }
+
+    h1{
+        font-size: calc(1.35rem + .7vw);
+    }
+}
+
+.product-detail-ordernumber-container{
+    &.has-review{
+        margin-bottom: 0;
+    }
+}
+
+.product-detail-ordernumber-container,
+.product-detail-reviews{
+    font-size: 12px;
+}
+
+.product-detail-manufacturer{
+    margin: 0 0 20px;
+
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
+}
+
+.norii-detail-accordion{
+    margin: 20px 0;
+
+    .product-detail-description-title,
+    .offcanvas-close,
+    hr{
+        display: none;
+    }
+
+    .card-header{
+        padding: 0;
+
+        .btn{
+            width: 100%;
+            text-align: left;
+            position: relative;
+            padding-left: 20px;
+            color: $sw-text-color;
+            font-weight: bold;
+
+            &::before{
+                background: inline-svg('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><polygon style="fill:'+$sw-text-color+';" points="160,128.4 192.3,96 352,256 352,256 352,256 192.3,416 160,383.6 287.3,256 "/></svg>');
+                background-size: 16px auto;
+                background-repeat: no-repeat;
+                content: "";
+                display: inline-block;
+                height: 16px;
+                width: 16px;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                @include transform(translateY(-50%) rotate(90deg));
+                @include transition();
+            }
+
+            &.collapsed{
+                &::before{
+                    @include transform(translateY(-50%));
+                }
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            background: none;
+
+            .btn{
+                line-height: 1.2;
+            }
+        }
+    }
+
+    .card-body{
+        padding: 10px 21px;
+    }
+
+    .login-card .card-body{
+        padding: 0;
+    }
+
+    .product-detail-review-content{
+        .col-sm-4{
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    .product-detail-properties-container{
+        .col-lg-6{
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    .product-detail-description-text,
+    .product-detail-properties-table{
+        margin-bottom: 0;
+    }
+
+    .product-detail-review-teaser-btn{
+        margin-bottom: 20px;
+    }
+}
+
+.product-detail-manufacturer-logo{
+    max-width: 120px;
+}
+
+.norii-detail-usps{
+    margin-top: 20px;
+
+    .norii-detail-usp-item{
+        padding-left: 5px;
+
+        svg{
+            max-width: 10px;
+        }
+    }
+}
+
+.norii-footer-logos{
+    &.norii-detail-footer-logos{
+        justify-content: right;
+
+        .footer-logo{
+            max-width: 55px;
+        }
+
+        svg{
+            width:100%;
+            height: auto;
+        }
+    }
+}
+
+.product-detail-tabs-content{
+    .product-box{
+        &.box-standard {
+            .product-description,
+            .product-variant-characteristics{
+                display: none;
+            }
+        }
+    }
+}
+
+

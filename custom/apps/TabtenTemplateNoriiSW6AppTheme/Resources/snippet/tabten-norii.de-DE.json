@@ -1,0 +1,25 @@
+{
+    "tabten-norii": {
+        "usps": {
+            "usp01": "Kostenloser Versand ab 100 Euro",
+            "usp02": "Sichere SSL Verbindung",
+            "usp03": "Schnelle Lieferung",
+            "usp04": "Tel: 012345678"
+        },
+        "mainnav": {
+            "greedy-menu-name": "Menü"
+        },
+        "detail": {
+            "properties": "Eigenschaften",
+            "accordion-properties": "Eigenschaften",
+            "detail-usp-item-01": "Kostenloser Versand ab 100 Euro",
+            "detail-usp-item-02": "Sichere SSL Verbindung",
+            "detail-usp-item-03": "Schnelle Lieferung",
+            "detail-usp-item-04": "Tel: 012345678"
+        },
+        "footer": {
+            "payment-headline": "Zahlungsarten",
+            "shipping-headline": "Versandarten"
+        }
+    }
+}

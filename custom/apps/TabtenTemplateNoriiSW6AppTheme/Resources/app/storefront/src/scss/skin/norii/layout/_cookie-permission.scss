@@ -1,0 +1,41 @@
+// --------------------------------------------------
+// copyright  ©  TAB10 / ENOOA s.r.o.
+// --------------------------------------------------
+
+.cookie-permission-container {
+    //padding: 20px;
+    border-color: transparent;
+    background: $norii-cookiepermission-background-color;
+    color: $norii-cookiepermission-color;
+}
+
+.cookie-permission-content {
+
+    a {
+        color: $norii-cookiepermission-color;
+        text-decoration: underline;
+    }
+}
+
+.cookie-permission-button{
+
+    .btn{
+        background: transparent;
+        color: $norii-cookiepermission-color;
+        border-width: 2px;
+        border-color: $norii-cookiepermission-color;
+
+        &:hover{
+            background: #fff;
+            color: #000;
+        }
+    }
+
+}
+
+//@include media-breakpoint-up(md) {
+//    .cookie-permission-content {
+//        text-align: left;
+//        margin-bottom: 0;
+//    }
+//}

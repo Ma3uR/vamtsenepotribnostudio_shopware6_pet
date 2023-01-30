@@ -1,0 +1,110 @@
+// --------------------------------------------------
+// copyright  ©  TAB10 / ENOOA s.r.o.
+// --------------------------------------------------
+
+.footer-main{
+  background: $norii-footer-background-color;
+  color: $norii-footer-font-color;
+  border: none;
+
+  p{
+    color: $norii-footer-font-color;
+  }
+}
+
+.footer-columns{
+  border: none;
+
+    .col-md-4{
+      @include media-breakpoint-up(md) {
+        flex: 0 0 25%;
+        max-width: 25%;
+      }
+    }
+}
+
+.footer-column{
+  border-color: $norii-footer-border-color;
+}
+
+.footer-column-headline{
+  color: $norii-footer-font-color;
+  text-transform: uppercase;
+
+  &::after{
+    content: "";
+    display: block;
+    height: 2px;
+    background: $norii-footer-font-color;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding-bottom: 20px;
+  }
+}
+
+.footer-link{
+  @include media-breakpoint-down(md) {
+    padding: 5px 0;
+  }
+}
+
+.footer-vat p{
+  font-size: 12px;
+  margin: 0;
+}
+
+.footer-copyright{
+  font-size: 9px;
+}
+
+.norii-footer-logos-container{
+  padding: 40px 0;
+  border-bottom: 1px solid $norii-footer-border-color;
+  background: $norii-footer-logos-background-color;
+}
+
+.norii-footer-column-headline{
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $norii-footer-logos-font-color;
+  margin: 0 0 10px;
+}
+
+.norii-footer-logos{
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  flex-wrap:wrap;
+
+  &.norii-usp-grayscale{
+    filter: grayscale(1);
+  }
+
+  .footer-logo{
+    max-width:75px;
+    margin-right: 0;
+    padding-left: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+.footer-main a,
+.footer-link,
+.footer-contact-hotline a,
+.footer-service-menu-link{
+  color: $norii-footer-font-color;
+
+  &:hover{
+    color: $norii-footer-font-color;
+  }
+}
+
+.footer-bottom{
+  background: $norii-footer-background-color;
+  color: $norii-footer-font-color;
+}

@@ -1,0 +1,105 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/buy-widget.html.twig' %}
+
+{% block page_product_detail_reviews %}{% endblock %}
+
+{% block page_product_detail_ordernumber_container %}
+
+    {% if config('TabtenTemplateNoriiSW6.config.noriiPaymentMethods') %}
+        {% block norii_detail_payment_icons %}
+            <div class="norii-footer-logos norii-detail-footer-logos{% if config('TabtenTemplateNoriiSW6.config.noriiGrayscaleIcons') %} norii-usp-grayscale{% endif %}">
+                {% sw_include '@Storefront/storefront/layout/footer/norii-footer-payments.html.twig' %}
+            </div>
+        {% endblock %}
+    {% endif %}
+
+    {% if theme_config('norii-show-detail-usps') %}
+        {% block norii_detail_usps %}
+            <div class="norii-detail-usps">
+                {% block norii_detail_usp_item_01 %}
+                    <div class="norii-detail-usp-item">
+                        {% sw_icon 'checkmark' style { 'size': 'xs' } %}
+                        <span>
+                            {{ "tabten-norii.detail.detail-usp-item-01"|trans|sw_sanitize }}
+                        </span>
+                    </div>
+                {% endblock %}
+                {% block norii_detail_usp_item_02 %}
+                    <div class="norii-detail-usp-item">
+                        {% sw_icon 'checkmark' style { 'size': 'xs' } %}
+                        <span>
+                            {{ "tabten-norii.detail.detail-usp-item-02"|trans|sw_sanitize }}
+                        </span>
+                    </div>
+                {% endblock %}
+                {% block norii_detail_usp_item_03 %}
+                    <div class="norii-detail-usp-item">
+                        {% sw_icon 'checkmark' style { 'size': 'xs' } %}
+                        <span>
+                            {{ "tabten-norii.detail.detail-usp-item-03"|trans|sw_sanitize }}
+                        </span>
+                    </div>
+                {% endblock %}
+                {% block norii_detail_usp_item_04 %}
+                    <div class="norii-detail-usp-item">
+                        {% sw_icon 'checkmark' style { 'size': 'xs' } %}
+                        <span>
+                            {{ "tabten-norii.detail.detail-usp-item-04"|trans|sw_sanitize }}
+                        </span>
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+    {% endif %}
+
+
+    {% if theme_config('norii-show-detail-accordion') %}
+        <div id="norii-accordion" class="norii-detail-accordion">
+            <div class="card">
+                <div class="card-header">
+                    <div class="mb-0">
+                        <button id="norii-accordion-heading-description" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            {{ "detail.tabsDescription"|trans|sw_sanitize }}
+                        </button>
+                    </div>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="norii-accordion-heading-description" data-parent="#norii-accordion">
+                    <div class="card-body">
+                        {% sw_include '@Storefront/storefront/page/product-detail/description.html.twig' %}
+                    </div>
+                </div>
+            </div>
+            {% if page.product.sortedProperties|length > 0 %}
+                <div class="card">
+                    <div class="card-header">
+                        <div class="mb-0">
+                            <button id="norii-accordion-heading-properties" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                {{ "tabten-norii.detail.accordion-properties"|trans|sw_sanitize }}
+                            </button>
+                        </div>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="norii-accordion-heading-properties" data-parent="#norii-accordion">
+                        <div class="card-body">
+                            {% sw_include '@Storefront/storefront/page/product-detail/properties-tab.html.twig' %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="card">
+                <div class="card-header">
+                    <div class="mb-0">
+                        <button id="norii-accordion-heading-rating" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            {{ "detail.tabsReview"|trans|sw_sanitize }}
+                        </button>
+                    </div>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="norii-accordion-heading-rating" data-parent="#norii-accordion">
+                    <div class="card-body">
+                        {% sw_include '@Storefront/storefront/page/product-detail/review/review.html.twig' with {'reviews': page.reviews} %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

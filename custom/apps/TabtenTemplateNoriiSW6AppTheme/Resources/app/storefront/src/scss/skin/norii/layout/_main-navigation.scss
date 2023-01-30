@@ -1,0 +1,323 @@
+// --------------------------------------------------
+// copyright  ©  TAB10 / ENOOA s.r.o.
+// --------------------------------------------------
+
+.nav-main{
+    width: 100%;
+    padding-left: 220px;
+
+    &.norii-greedy-active{
+
+        .navigation-flyouts{
+            left: 0;
+            width: 100%;
+            transform: none;
+        }
+    }
+}
+
+.main-navigation{
+    background: $norii-header-background-color;
+
+    .header-logo-main{
+        display: flex;
+        align-items: center;
+        opacity: 0;
+        width: 1px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        @include transform(translateY(-50%));
+        @include transition();
+
+        img{
+            max-height: 35px;
+        }
+    }
+
+    .norii-additional-nav-col{
+        position: absolute;
+        right: 0;
+        opacity: 0;
+        padding: 0;
+        top: 50%;
+        @include transform(translateY(-50%));
+
+        .header-cart-total{
+            bottom:-25px;
+        }
+    }
+}
+
+.main-navigation-menu{
+    font-size: $norii-header-navi-fontsize;
+    position: relative;
+    justify-content: center;
+    @include transition();
+
+    .norii-center-navi & {
+        justify-content: center;
+    }
+}
+
+
+
+.main-navigation-link{
+    padding: 25px 10px;
+    background: $norii-header-background-color;
+    color: $norii-header-icon-color;
+    @include transition(all .3s ease-out);
+
+    .norii-fixed-nav &{
+        padding: 12px 10px;
+    }
+
+    &:hover{
+        color: $norii-header-icon-color-hover;
+
+        .main-navigation-link-text{
+            color: $norii-header-icon-color-hover;
+        }
+    }
+
+    &:hover,
+    &.active,
+    &.is-open{
+        background: $norii-header-background-color;
+    }
+
+    &.active{
+        font-weight: 500;
+    }
+
+    &.active,
+    &.is-open{
+        color: $norii-header-icon-color-hover;
+
+        .main-navigation-link-text{
+            color: $norii-header-icon-color-hover;
+        }
+    }
+
+    .main-navigation-link-text{
+        border: none;
+        padding-bottom: 0;
+        position: relative;
+    }
+}
+
+// Flyout
+.navigation-flyouts{
+    width: 1024px;
+    left: 50%;
+    @include transform(translateX( calc(-50% + 100px) ));
+
+    .norii-fullwidth-header.norii-alignleft-navi &{
+        width: 100%;
+    }
+}
+
+.navigation-flyout{
+    margin-top:1px;
+    max-width: 1400px;
+    width: 100%;
+    z-index: 1;
+}
+
+.navigation-flyout-close{
+    position: absolute;
+    right: 33px;
+    z-index: 1;
+
+    svg {
+        filter:drop-shadow(0 1px 0 #fff);
+    }
+}
+
+.navigation-flyout-content{
+    padding: 0;
+    margin: 0;
+}
+
+.navigation-flyout-teaser{
+    margin-right: -20px;
+}
+
+.navigation-flyout-teaser-image-container{
+    height: auto;
+}
+
+.navigation-flyout-categories{
+
+    &.is-level-0 > .navigation-flyout-col{
+        padding-top: 20px;
+    }
+
+    &:not(.is-level-0){
+        margin: 0;
+    }
+
+    &.is-level-0 > .navigation-flyout-col::before{
+        display: none;
+    }
+}
+
+.navigation-flyout-link{
+    font-size: 13px;
+    margin: 0;
+
+    &:hover{
+        padding-left: 0;
+    }
+}
+
+.navigation-flyout-bar,
+.navigation-flyout-bar .col-auto{
+    padding: 0;
+}
+
+.navigation-flyout-category-link{
+    display: none;
+}
+
+// GREEDY NAV
+.norii-greedy-nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    button {
+        align-self: stretch;
+        transition: all .4s ease-out;
+        outline: 0;
+        border: 0;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 0 20px 0 10px;
+        background: #f2f2f2;
+        position: relative;
+        color: $norii-header-icon-color;
+
+        span{
+            display: inline-block;
+            color: #000;
+            @include transform(translate3d(5px,-5px,0));
+        }
+
+        &::before{
+            content: "";
+            display: inline-block;
+            height: 15px;
+            width: 24px;
+            background: inline-svg('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"><g><path d="M11.985,9.597c-1.329,0-2.403,1.074-2.403,2.403s1.074,2.403,2.403,2.403c1.329,0,2.403-1.074,2.403-2.403	S13.313,9.597,11.985,9.597L11.985,9.597z"/><path d="M2.403,9.597C1.074,9.597,0,10.671,0,12s1.074,2.403,2.403,2.403S4.806,13.329,4.806,12S3.725,9.597,2.403,9.597 L2.403,9.597z"/><path d="M21.597,9.597c-1.329,0-2.403,1.074-2.403,2.403s1.074,2.403,2.403,2.403S24,13.329,24,12S22.926,9.597,21.597,9.597 L21.597,9.597z"/></g></svg>');
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            @include transform(translate3d(-50%, 10px,0));
+        }
+
+        &::after {
+            content: attr(count);
+            display: inline-flex;
+            width: 20px;
+            height: 20px;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: #000;
+            border:1px solid #eee;
+            border-radius: 50%;
+            font-size: 12px;
+            line-height: 14px;
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            @include transform(translateY(-50%));
+        }
+
+        &.active{
+            &::after{
+                content: "";
+                background-image: inline-svg('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"><polygon fill="#000" points="22.525,0 11.975,10.538 1.475,0.05 0,1.525 10.5,12 0,22.487 1.475,23.95 11.975,13.475 22.525,24 24,22.537 13.45,12 24,1.475 "/></svg>');
+                background-size: 10px auto;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+
+        &.hidden{
+            transition: none;
+            //border-right: 0.5rem solid #b6b6b6;
+            width: 0;
+            padding: 0;
+            overflow: hidden;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
+
+.norii-greedy-main-nav-links {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    overflow: hidden;
+
+    .norii-alignleft-navi &{
+        justify-content: left;
+    }
+
+    li {
+        flex: none;
+
+        a {
+            color: $norii-header-icon-color;
+        }
+    }
+}
+
+.norii-hidden-links {
+    position: absolute;
+    background: #d8d8d8;
+    right: -180px;
+    top: 100%;
+    z-index: 751;
+    width: 180px;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 5px 5px -2px rgba(0,0,0,0.2);
+
+    &.hidden {
+        display: none;
+    }
+
+    li {
+
+        a {
+            color: #000;
+            background: #fff;
+            padding: 6px 10px;
+            border-bottom: 1px solid $norii-border-color;
+
+            &:hover{
+                background: #f2f2f2;
+                color: #000;
+            }
+        }
+
+        &:last-child{
+            a{
+                border: none;
+            }
+        }
+    }
+}
+
+

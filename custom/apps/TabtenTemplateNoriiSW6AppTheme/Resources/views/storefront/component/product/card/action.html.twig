@@ -1,0 +1,25 @@
+{% sw_extends '@Storefront/storefront/component/product/card/action.html.twig' %}
+
+{% block page_product_detail_product_buy_button %}
+    {% if theme_config('norii-minimal-buy-button') %}
+        <button class="btn btn-block btn-buy norii-minimal-buy-button"
+                title="{{ "listing.boxAddProduct"|trans|striptags }}">
+            {{ "listing.boxAddProduct"|trans|sw_sanitize }}
+        </button>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block component_product_box_action_detail %}
+    {% if theme_config('norii-minimal-buy-button') %}
+        <a href="{{ seoUrl('frontend.detail.page', {'productId': id}) }}"
+           class="btn btn-block btn-light norii-minimal-buy-button"
+           title="{{ "listing.boxProductDetails"|trans|striptags }}">
+            {{ "listing.boxProductDetails"|trans|sw_sanitize }}
+        </a>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+

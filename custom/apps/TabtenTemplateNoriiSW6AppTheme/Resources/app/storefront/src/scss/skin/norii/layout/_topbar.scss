@@ -1,0 +1,184 @@
+// --------------------------------------------------
+// copyright  ©  TAB10 / ENOOA s.r.o.
+// --------------------------------------------------
+
+.top-bar{
+    background: $norii-topbar-background-color;
+    color: $norii-topbar-font-color;
+    padding: 4px 20px;
+
+    .dropdown-menu{
+        background: #fff;
+        color: $sw-text-color;
+        border: 1px solid $norii-border-color;
+        margin: 7px 0 0 20px;
+        left: 15px !important;
+
+        &:after{
+            transform: rotate(135deg);
+            width: 8px;
+            height: 8px;
+            top: -5px;
+            right: 18px;
+            content: '';
+            display: block;
+            position: absolute;
+            background: #fff;
+            border-color: #dadae5;
+            border-width: 0 0 1px 1px;
+            border-style: solid;
+        }
+    }
+
+    .dropdown-toggle{
+        text-overflow: inherit;
+
+        &#languagesDropdown-top-bar,
+        &#currenciesDropdown-top-bar{
+            text-align: center;
+        }
+
+        .icon{
+            color: $norii-topbar-font-color
+        }
+
+        &::after{
+            border: none;
+        }
+    }
+
+    &:not(.navigation-offcanvas-actions){
+
+        .top-bar-nav-btn.btn{
+            font-weight: 300;
+            color: $norii-topbar-font-color;
+
+            &:hover{
+                color: $norii-topbar-font-color;
+
+                .icon{
+                    color: $norii-topbar-font-color;
+                }
+            }
+
+            &::after{
+                color: #fff;
+            }
+
+        }
+
+        .top-bar-list-item{
+            color: $sw-text-color;
+
+            &:hover{
+                color: $sw-color-brand-primary;
+            }
+        }
+
+        .dropdown.show .top-bar-nav-btn,
+        .dropdown.show .top-bar-nav-btn .icon{
+            color: $norii-topbar-font-color;
+        }
+    }
+}
+
+.top-bar-nav{
+    padding: 0;
+    max-width: 1360px;
+    margin: 0 auto;
+
+    .top-bar-nav-item{
+        margin-right: 25px;
+        text-align: center;
+        min-width: 25px;
+        justify-content: center;
+
+        &:last-child{
+            margin-right: 10px;
+        }
+
+        button{
+            line-height: 1;
+        }
+
+        .currencies-menu{
+            top: -2px;
+        }
+
+        .languages-menu{
+            top: -1px;
+        }
+
+        .top-bar-nav-text{
+            display: none;
+        }
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+
+    .top-bar-list-icon{
+        margin: 0;
+    }
+
+    .btn .icon > svg{
+        top: 0;
+    }
+
+    .icon{
+        height: 18px;
+        width: 18px;
+    }
+}
+
+.top-bar-nav-btn.btn,
+.top-bar-list-item,
+.norii-topbar-usp-item{
+    font-size: 12px; // TODO: editable
+}
+
+.dropdown-menu{
+    border: none;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+}
+
+.norii-topbar-usps{
+    display: flex;
+    align-items: center;
+    color: $norii-topbar-font-color;
+    margin-right: auto;
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 11px;
+}
+
+.currency-form{
+    .btn{
+        line-height: 20px;
+    }
+}
+
+.norii-topbar-usp-item{
+    font-size: 11px;
+    line-height: 20px;
+    margin: 0 25px 0 0;
+    padding: 0 0 0 18px;
+    position:relative;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &::before{
+        display: inline-block;
+        content: "";
+        width: 12px;
+        height: 12px;
+        background: inline-svg('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"><g><polygon style="fill:'+$norii-topbar-font-color+';" points="7.865,20.555 0,12.688 0.975,11.715 7.865,18.605 23.025,3.445 24,4.42"/></g></svg>') no-repeat;
+        background-size:contain;
+        position: relative;
+        top: 2px;
+        left:-3px;
+    }
+}

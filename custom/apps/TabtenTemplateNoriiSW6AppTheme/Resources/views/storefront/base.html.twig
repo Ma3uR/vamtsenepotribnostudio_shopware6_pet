@@ -1,0 +1,63 @@
+{# --------------------------------------------------#}
+{# copyright  ©  TAB10 / ENOOA s.r.o. #}
+{# --------------------------------------------------#}
+
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_body_classes %}
+    {{ parent() }}
+    {% if theme_config('norii-header-layout') %} norii-fullwidth-header{% endif %}
+    {% if theme_config('norii-navigation-layout') == "left" %} norii-alignleft-navi{% endif %}
+    {% if theme_config('norii-fluid-productbox-content') %} norii-fluid-productbox-content{% endif %}
+    {% if theme_config('norii-open-filter-in-sidebar') %} norii-open-filter-in-sidebar{% endif %}
+    {% if theme_config('norii-fixed-filter-in-listing') %} norii-fixed-filter-in-listing{% endif %}
+    {% if theme_config('norii-form-floatlabels') %} norii-float-labels{% endif %}
+    {% if theme_config('norii-sticky-navi') %} norii-sticky-navi{% endif %}
+    {% if theme_config('norii-detail-image-slider') and controllerName == 'Product' %} norii-detail-image-slider{% endif %}
+    norii-page-{{  controllerAction|lower }}-{{  controllerName|lower }}
+{% endblock %}
+
+{% block base_navigation %}{% endblock %}
+
+{% block base_footer %}
+    {%  if config('TabtenTemplateNoriiSW6.config.noriiPaymentMethods') or config('TabtenTemplateNoriiSW6.config.noriiShippingMethods') %}
+        <div class="norii-footer-logos-container">
+            <div class="container">
+                <div class="row">
+                    {% if config('TabtenTemplateNoriiSW6.config.noriiShippingMethods') %}
+                        {% block norii_footer_shippings_icons %}
+                            <div class="col">
+                                <div class="norii-footer-column-headline">
+                                    {{ "tabten-norii.footer.shipping-headline"|trans|sw_sanitize }}
+                                </div>
+                                <div class="norii-footer-logos{% if config('TabtenTemplateNoriiSW6.config.noriiGrayscaleIcons') %} norii-usp-grayscale{% endif %}">
+                                    {% sw_include '@Storefront/storefront/layout/footer/norii-footer-shippings.html.twig' %}
+                                </div>
+                            </div>
+                        {% endblock %}
+                    {% endif %}
+
+                    {% if config('TabtenTemplateNoriiSW6.config.noriiPaymentMethods') %}
+                        {% block norii_footer_payment_icons %}
+                            <div class="col">
+                                <div class="norii-footer-column-headline">
+                                    {{ "tabten-norii.footer.payment-headline"|trans|sw_sanitize }}
+                                </div>
+                                <div class="norii-footer-logos{% if config('TabtenTemplateNoriiSW6.config.noriiGrayscaleIcons') %} norii-usp-grayscale{% endif %}">
+                                    {% sw_include '@Storefront/storefront/layout/footer/norii-footer-payments.html.twig' %}
+                                </div>
+                            </div>
+                        {% endblock %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block base_script_hmr_mode %}
+    {{ parent() }}
+    {% sw_include '@Storefront/storefront/utilities/norii-icons.html.twig' %}
+{% endblock %}

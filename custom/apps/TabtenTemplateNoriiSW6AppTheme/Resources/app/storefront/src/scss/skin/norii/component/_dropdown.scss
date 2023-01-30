@@ -1,0 +1,18 @@
+// --------------------------------------------------
+// copyright  ©  TAB10 / ENOOA s.r.o.
+// --------------------------------------------------
+
+.dropdown-menu {
+  border-radius: 0;
+}
+
+.dropdown{
+  &.show{
+    *[aria-expanded="true"]{
+      &::before,
+      &::after{
+        display: none;
+      }
+    }
+  }
+}

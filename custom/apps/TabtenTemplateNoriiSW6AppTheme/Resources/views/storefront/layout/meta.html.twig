@@ -1,0 +1,12 @@
+{% sw_extends '@Storefront/storefront/layout/meta.html.twig' %}
+
+{% block layout_head_stylesheet %}
+    {{ parent() }}
+
+    {% if config('TabtenTemplateNoriiSW6.config.noriiCustomCss') %}
+        <style>
+            {{ config('TabtenTemplateNoriiSW6.config.noriiCustomCss') }}
+        </style>
+    {% endif %}
+
+{% endblock %}

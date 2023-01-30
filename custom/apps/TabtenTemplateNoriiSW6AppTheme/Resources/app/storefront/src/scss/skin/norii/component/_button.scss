@@ -1,0 +1,25 @@
+// --------------------------------------------------
+// copyright  ©  TAB10 / ENOOA s.r.o.
+// --------------------------------------------------
+
+.btn {
+    font-weight: normal; // TODO: editalbe
+    border-radius: $norii-button-border-radius;
+
+    &:not(:disabled):not(.disabled):active,
+    &:focus{
+        box-shadow: none;
+    }
+
+    &#addProductButton,
+    &#addPromotion,
+    &#addPromotionOffcanvasCart{
+        border-radius: 0;
+    }
+
+    .cart-shipping-costs-btn{
+        svg{
+            width: 11px;
+        }
+    }
+}
